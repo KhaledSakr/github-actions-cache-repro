@@ -6,7 +6,6 @@ on:
 
 jobs:
   try:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/cache@v2
@@ -15,6 +14,5 @@ jobs:
         key: cache-${{ github.sha }}
         restore-keys: cache-
     - run: |
-        cat testfile
         echo $GITHUB_REF
         echo $GITHUB_REF > testfile
